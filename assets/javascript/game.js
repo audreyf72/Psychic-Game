@@ -7,7 +7,7 @@ var guessesLeft = 9;
 var lettersGuessed = [];
 var playerGuess = null;
 var randomletter = alphabet[Math.floor(Math.random() * alphabet.length)];
-console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + lettersGuessed + " I picked: " + randomletter);
+
 
 document.onkeyup = function(event) {
    var playerGuess = String.fromCharCode(event.keyCode).toLowerCase();
@@ -20,8 +20,7 @@ document.onkeyup = function(event) {
        wins++;
        guessesLeft= 9;
        lettersGuessed = [];
-       randomletter = alphabet[Math.floor(Math.random() * alphabet.length)];
-       console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + lettersGuessed + " I picked: " + randomletter);
+       randomletter = alphabet[Math.floor(Math.random() * alphabet.length)]; 
    }
 
    if (guessesLeft === 0) {
@@ -30,15 +29,14 @@ document.onkeyup = function(event) {
        guessesLeft = 9;
        lettersGuessed = [];
        randomletter = alphabet[Math.floor(Math.random() * alphabet.length)];
-       console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + lettersGuessed + " I picked: " + randomletter);
    }
 
    var html = 
-   + "<p>Guess what letter I\'m thinking of</p>" 
-   + "<p>Wins: " + wins + "</p>" 
-   + "<p>Losses: " + losses + "</p>" 
-   + "<p>Guesses Left: " + guessesLeft + "</p>" 
-   + "<p>Your guesses so far: " + lettersGuessed + "</p>";
+        "<p>Guess what letter I\'m thinking of</p>" +
+        "<p>Wins: " + wins + "</p>" +
+        "<p>Losses: " + losses + "</p>" +
+        "<p>Guesses Left: " + guessesLeft + "</p>" +
+        "<p>Your guesses so far: " + lettersGuessed + "</p>";
 
    document.querySelector("#game").innerHTML = html;
 }
